@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Engenharia de Software e Métodos Ágeis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .quiz-container {
+            padding: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #4facfe;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .options {
+            list-style: none;
+        }
+
+        .option {
+            margin-bottom: 12px;
+        }
+
+        .option label {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        .option label:hover {
+            border-color: #4facfe;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 172, 254, 0.2);
+        }
+
+        .option input[type="radio"] {
+            min-width: 18px;
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: #4facfe;
+        }
+
+        .option.correct label {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect label {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .option.neutral label {
+            background: #f8f9fa;
+            border-color: #6c757d;
+            color: #495057;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .results {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .results p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .question-info {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            .header {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .quiz-container {
+                padding: 20px;
+            }
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Quiz Engenharia de Software</h1>
+            <p>Teste seus conhecimentos sobre Métodos Ágeis, Scrum, Kanban e mais!</p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div id="questionsContainer">
+                </div>
+
+            <div class="controls">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                    ← Anterior
+                </button>
+                <div class="question-info">
+                    <span id="currentQuestion">1</span> de <span id="totalQuestions">0</span>
+                </div>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                    Próxima →
+                </button>
+            </div>
+
+            <div class="results" id="results">
+                <div class="score-circle" id="scoreCircle">0%</div>
+                <h2>Quiz Concluído!</h2>
+                <p id="scoreText"></p>
+                <button class="btn btn-primary" onclick="restartQuiz()">Reiniciar Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Declara as variáveis globais
+        let questions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+        let showingFeedback = false;
+
+        // Função principal que inicia o quiz
+        function initQuiz() {
+            // Usa fetch para carregar as perguntas do arquivo JSON
+            fetch('perguntas.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro de rede ao buscar o arquivo JSON.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    questions = data; // Carrega os dados no array de perguntas
+                    // Inicia a renderização do quiz somente após o carregamento
+                    document.getElementById('totalQuestions').textContent = questions.length;
+                    renderQuestion();
+                    updateProgress();
+                    document.getElementById('nextBtn').disabled = false; // Habilita o botão 'Próxima'
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar o quiz:', error);
+                    // Exibe uma mensagem de erro para o usuário
+                    document.getElementById('questionsContainer').innerHTML = 
+                        `<p style="color: red; text-align: center;">Não foi possível carregar as perguntas. Verifique se o arquivo "perguntas.json" está na pasta correta e tente novamente.</p>`;
+                });
+        }
+
+        // Renderiza a pergunta atual na tela
+        function renderQuestion() {
+            const container = document.getElementById('questionsContainer');
+            if (questions.length === 0) return; // Não faz nada se as perguntas não foram carregadas
+
+            const question = questions[currentQuestionIndex];
+            
+            container.innerHTML = `
+                <div class="question-card active">
+                    <div class="question-number">Pergunta ${currentQuestionIndex + 1}</div>
+                    <div class="question-text">${question.question}</div>
+                    <ul class="options">
+                        ${question.options.map((option, index) => `
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="question" value="${index}" onchange="selectAnswer(${index})">
+                                    ${String.fromCharCode(97 + index)}) ${option}
+                                </label>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="feedback" id="feedback">
+                        <strong>Feedback:</strong> ${question.feedback}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            updateButtons();
+        }
+
+        // Processa a seleção de uma resposta
+        function selectAnswer(answerIndex) {
+            if (showingFeedback) return;
+            
+            userAnswers[currentQuestionIndex] = answerIndex;
+            const question = questions[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+            
+            options.forEach((option, index) => {
+                option.querySelector('input').disabled = true;
+                
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === answerIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                } else {
+                    option.classList.add('neutral');
+                }
+            });
+            
+            document.getElementById('feedback').classList.add('show');
+            showingFeedback = true;
+            
+            if (answerIndex === question.correct) {
+                score++;
+            }
+            
+            updateButtons();
+        }
+
+        // Navega para a próxima pergunta
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                showingFeedback = false;
+                renderQuestion();
+                updateProgress();
+                // Verifica se a próxima pergunta já foi respondida
+                if (userAnswers[currentQuestionIndex] !== undefined) {
+                    selectAnswer(userAnswers[currentQuestionIndex]);
+                }
+            } else {
+                showResults();
+            }
+        }
+
+        // Navega para a pergunta anterior
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showingFeedback = true; // Sempre mostra o feedback ao voltar
+                renderQuestion();
+                // Re-seleciona a resposta que o usuário já havia dado
+                if (userAnswers[currentQuestionIndex] !== undefined) {
+                    selectAnswer(userAnswers[currentQuestionIndex]);
+                }
+                updateProgress();
+            }
+        }
+
+        // Atualiza o estado dos botões de navegação
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.textContent = 'Finalizar';
+            } else {
+                nextBtn.textContent = 'Próxima →';
+            }
+            // O botão 'Próxima/Finalizar' só é habilitado após uma resposta ser dada
+            nextBtn.disabled = userAnswers[currentQuestionIndex] === undefined;
+        }
+
+        // Atualiza a barra de progresso
+        function updateProgress() {
+            if (questions.length === 0) return;
+            const progress = ((currentQuestionIndex) / (questions.length-1)) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Mostra a tela de resultados finais
+        function showResults() {
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            // Oculta a área do quiz
+            document.getElementById('questionsContainer').style.display = 'none';
+            document.querySelector('.controls').style.display = 'none';
+            document.querySelector('.progress-bar').style.display = 'none';
+
+            // Exibe a área de resultados
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.classList.add('show');
+            resultsContainer.style.display = 'block';
+
+            document.getElementById('scoreCircle').textContent = percentage + '%';
+            document.getElementById('scoreText').textContent = 
+                `Você acertou ${score} de ${questions.length} perguntas (${percentage}%).`;
+        }
+
+        // Reinicia o quiz
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            showingFeedback = false;
+            
+            // Re-exibe a área do quiz e oculta os resultados
+            document.getElementById('questionsContainer').style.display = 'block';
+            document.querySelector('.controls').style.display = 'flex';
+            document.querySelector('.progress-bar').style.display = 'block';
+            document.getElementById('results').classList.remove('show');
+            document.getElementById('results').style.display = 'none';
+            
+            initQuiz(); // Recarrega as perguntas e reinicia o quiz
+        }
+
+        // Inicializar o quiz quando a página carregar
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
