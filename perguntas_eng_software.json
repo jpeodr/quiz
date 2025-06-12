@@ -1,6 +1,7 @@
 [
   {
     "question": "Quais são os princípios do Kanban?",
+    "type": "multiple-choice",
     "options": [
       "Pessoas e interações, software funcionando, colaboração do cliente, responder a mudanças.",
       "Comece com o que você faz agora, concorde em buscar mudanças evolucionárias, respeite os processos atuais, lidere com visão e inspire a equipe.",
@@ -12,6 +13,7 @@
   },
   {
     "question": "Qual é a principal diferença entre os Critérios de Aceite e os Casos de Teste?",
+    "type": "multiple-choice",
     "options": [
       "Critérios de Aceite definem cenários de teste, enquanto Casos de Teste definem as condições de aceitação.",
       "Critérios de Aceite são condições para considerar um produto satisfatório, enquanto Casos de Teste são cenários específicos a serem testados para validar esses critérios.",
@@ -23,6 +25,7 @@
   },
   {
     "question": "O que caracteriza o modelo de processo ágil?",
+    "type": "multiple-choice",
     "options": [
       "Processos lineares e rígidos.",
       "Valorização da documentação mais que do software funcionando.",
@@ -34,6 +37,7 @@
   },
   {
     "question": "Qual o objetivo de um 'Incremento' no Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Um protótipo funcional, mas não utilizável.",
       "Um conjunto de funcionalidades testadas e prontas para uso, que agrega valor ao produto e é o resultado de uma Sprint.",
@@ -45,6 +49,7 @@
   },
   {
     "question": "Como a comunicação efetiva é abordada nos princípios ágeis?",
+    "type": "multiple-choice",
     "options": [
       "A comunicação deve ser formal e limitada a reuniões agendadas.",
       "A comunicação face a face é a forma mais eficiente e eficaz de transmitir informações para e entre uma equipe de desenvolvimento.",
@@ -56,6 +61,7 @@
   },
   {
     "question": "Qual a relação entre o Manifesto Ágil e as metodologias como Scrum e Kanban?",
+    "type": "multiple-choice",
     "options": [
       "O Manifesto Ágil é uma metodologia, e Scrum e Kanban são ferramentas.",
       "O Manifesto Ágil define os valores e princípios, enquanto Scrum e Kanban são frameworks ou métodos que implementam esses valores e princípios.",
@@ -67,6 +73,7 @@
   },
   {
     "question": "Qual das alternativas a seguir é um exemplo de requisito não funcional?",
+    "type": "multiple-choice",
     "options": [
       "O sistema deve autenticar usuários.",
       "O sistema deve permitir cadastrar clientes.",
@@ -78,6 +85,7 @@
   },
   {
     "question": "Qual a importância do feedback constante no desenvolvimento ágil?",
+    "type": "multiple-choice",
     "options": [
       "O feedback é desnecessário, pois o plano é rígido.",
       "O feedback contínuo, tanto interno quanto externo, é crucial para validar o progresso, identificar desvios e garantir que o produto atenda às expectativas do cliente.",
@@ -89,6 +97,7 @@
   },
   {
     "question": "Qual o papel do 'time-boxing' (limite de tempo) em métodos ágeis como o Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Estender o tempo de entrega para garantir a perfeição.",
       "Definir um tempo fixo para eventos e atividades, garantindo disciplina, foco e previsibilidade nas entregas.",
@@ -100,6 +109,7 @@
   },
   {
     "question": "Qual o papel das reuniões diárias (Daily Scrum ou Daily Stand-up) em um projeto ágil?",
+    "type": "multiple-choice",
     "options": [
       "Revisar o backlog do produto e adicionar novas funcionalidades.",
       "Sincronizar a equipe, inspecionar o progresso em relação à meta da Sprint e identificar impedimentos.",
@@ -110,7 +120,8 @@
     "feedback": "A Daily Scrum (ou Daily Stand-up) é um evento diário de 15 minutos onde a equipe de desenvolvimento inspeciona o progresso em relação à Meta da Sprint e adapta o Backlog da Sprint conforme necessário, resolvendo impedimentos."
   },
   {
-    "question": "Você é responsável pelo desenvolvimento de um sistema para uma startup que ainda está definindo seu modelo de negócios. As necessidades do cliente mudam frequentemente, e o mercado exige entregas rápidas, com possibilidade de alterações durante o desenvolvimento. O cliente valoriza muito a entrega contínua de funcionalidades. Diante desse contexto, qual modelo de processo você recomenda e por quê?",
+    "question": "Você é responsável pelo desenvolvimento de um sistema para uma startup que ainda está definindo seu modelo de negócios. As necessidades do cliente mudam frequentemente. Qual modelo de processo você recomenda e por quê?",
+    "type": "multiple-choice",
     "options": [
       "Modelo Cascata, pois garante controle rígido sobre as fases.",
       "Modelo Espiral, já que permite planejar todos os riscos no início do projeto.",
@@ -122,6 +133,7 @@
   },
   {
     "question": "O que o diagrama de classes representa na UML?",
+    "type": "multiple-choice",
     "options": [
       "Fluxo de atividades",
       "Relacionamento entre classes e atributos",
@@ -133,6 +145,7 @@
   },
   {
     "question": "Como a transparência contribui para o sucesso de um projeto ágil?",
+    "type": "multiple-choice",
     "options": [
       "A transparência não é necessária, pois a equipe deve trabalhar de forma isolada.",
       "Promove a confiança, facilita a identificação de problemas e permite que todos os stakeholders tenham uma compreensão clara do progresso e dos desafios do projeto.",
@@ -144,6 +157,7 @@
   },
   {
     "question": "Qual é o principal objetivo da Engenharia de Software?",
+    "type": "multiple-choice",
     "options": [
       "Construir hardware eficiente",
       "Implementar apenas códigos rápidos",
@@ -155,6 +169,7 @@
   },
   {
     "question": "O que caracteriza o Teste de Caixa Branca?",
+    "type": "multiple-choice",
     "options": [
       "Avalia apenas a interface gráfica",
       "Testa funcionalidades sem olhar o código",
@@ -166,6 +181,7 @@
   },
   {
     "question": "A principal vantagem de seguir boas práticas de codificação é:",
+    "type": "multiple-choice",
     "options": [
       "Reduzir o custo de hardware",
       "Melhorar a aparência da interface",
@@ -177,6 +193,7 @@
   },
   {
     "question": "Como a auto-organização da equipe contribui para o sucesso em projetos ágeis?",
+    "type": "multiple-choice",
     "options": [
       "Leva ao caos e à falta de controle.",
       "Permite que a equipe tome decisões sobre como realizar o trabalho da melhor forma, aumentando o engajamento, a responsabilidade e a inovação.",
@@ -188,6 +205,7 @@
   },
   {
     "question": "Qual a diferença principal entre 'Waterfall' (Cascata) e metodologias ágeis em termos de flexibilidade?",
+    "type": "multiple-choice",
     "options": [
       "Waterfall é flexível e ágil é rígido.",
       "Waterfall é rígido e sequencial, com pouca flexibilidade a mudanças tardias; métodos ágeis são iterativos e adaptáveis a mudanças ao longo do projeto.",
@@ -199,6 +217,7 @@
   },
   {
     "question": "Na engenharia de requisitos, a elicitação visa:",
+    "type": "multiple-choice",
     "options": [
       "Programar os sistemas.",
       "Executar testes automatizados.",
@@ -210,6 +229,7 @@
   },
   {
     "question": "O ciclo de vida de software não inclui qual das opções abaixo?",
+    "type": "multiple-choice",
     "options": [
       "Implementação",
       "Testes",
@@ -221,6 +241,7 @@
   },
   {
     "question": "No contexto ágil, o que são 'indivíduos e interações mais que processos e ferramentas'?",
+    "type": "multiple-choice",
     "options": [
       "Ignorar processos e ferramentas em favor apenas das interações pessoais.",
       "Valorizar mais as pessoas envolvidas no projeto e como elas se comunicam, do que seguir rigidamente processos burocráticos ou usar ferramentas complexas.",
@@ -232,6 +253,7 @@
   },
   {
     "question": "O que significa 'Maximizing the amount of work not done' (Maximizando a quantidade de trabalho não feito) no contexto ágil?",
+    "type": "multiple-choice",
     "options": [
       "Significa procrastinar o máximo possível.",
       "É um princípio de simplicidade que enfatiza a entrega apenas do que é essencial e de maior valor, evitando funcionalidades desnecessárias.",
@@ -243,6 +265,7 @@
   },
   {
     "question": "'Pessoas motivadas' é um princípio do Manifesto Ágil. Como a motivação da equipe se relaciona com a entrega de software?",
+    "type": "multiple-choice",
     "options": [
       "Equipes desmotivadas tendem a entregar software de maior qualidade.",
       "Equipes motivadas são mais produtivas, inovadoras e entregam software de maior valor e qualidade.",
@@ -254,6 +277,7 @@
   },
   {
     "question": "O que é 'responder a mudanças mais que seguir um plano' no Manifesto Ágil?",
+    "type": "multiple-choice",
     "options": [
       "Abandonar completamente o planejamento e apenas reagir aos imprevistos.",
       "Ser capaz de se adaptar a novas informações e requisitos ao longo do projeto, em vez de seguir um plano rígido que pode se tornar obsoleto.",
@@ -265,6 +289,7 @@
   },
   {
     "question": "Na fase de análise do ciclo de vida de software, ocorre:",
+    "type": "multiple-choice",
     "options": [
       "Teste de funcionalidades",
       "Implementação do código",
@@ -276,6 +301,7 @@
   },
   {
     "question": "Qual é a finalidade de uma 'Sprint Review' no Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Planejar a próxima Sprint.",
       "Inspecionar o incremento do produto e adaptar o Backlog do Produto, se necessário, com a participação dos stakeholders.",
@@ -287,6 +313,7 @@
   },
   {
     "question": "Em projetos ágeis, qual a importância de 'construir em torno de indivíduos motivados'?",
+    "type": "multiple-choice",
     "options": [
       "É apenas um ideal inatingível na prática.",
       "Reconhece que a motivação e a autonomia da equipe são cruciais para a produtividade, criatividade e sucesso do projeto.",
@@ -298,6 +325,7 @@
   },
   {
     "question": "O que significa Elicitação de Requisitos?",
+    "type": "multiple-choice",
     "options": [
       "Testar funcionalidades",
       "Codificar módulos",
@@ -309,6 +337,7 @@
   },
   {
     "question": "O que significa 'atenção contínua à excelência técnica e ao bom design' no contexto ágil?",
+    "type": "multiple-choice",
     "options": [
       "Gastar tempo excessivo na criação de um design perfeito antes de iniciar o desenvolvimento.",
       "Garantir que o código seja impecável e o design seja escalável e de fácil manutenção, mesmo que isso atrase a entrega.",
@@ -320,6 +349,7 @@
   },
   {
     "question": "Qual a importância da 'simplicidade – a arte de maximizar a quantidade de trabalho não feito' no desenvolvimento ágil?",
+    "type": "multiple-choice",
     "options": [
       "Significa evitar todo e qualquer trabalho.",
       "Focar apenas no que é essencial para o produto funcionar e agregar valor, evitando complexidade desnecessária e funcionalidades que não trazem benefício imediato.",
@@ -331,6 +361,7 @@
   },
   {
     "question": "No modelo cascata, a principal característica é:",
+    "type": "multiple-choice",
     "options": [
       "Alto grau de flexibilidade",
       "Iterações contínuas",
@@ -342,6 +373,7 @@
   },
   {
     "question": "No Scrum, quem garante que os eventos aconteçam e que o time siga os princípios do Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Product Owner",
       "Scrum Master",
@@ -353,6 +385,7 @@
   },
   {
     "question": "No Scrum, qual evento é dedicado à melhoria do processo?",
+    "type": "multiple-choice",
     "options": [
       "Sprint Planning",
       "Sprint Review",
@@ -364,6 +397,7 @@
   },
   {
     "question": "No Scrum, qual evento ocorre diariamente e dura até 15 minutos?",
+    "type": "multiple-choice",
     "options": [
       "Planning",
       "Sprint Review",
@@ -375,6 +409,7 @@
   },
   {
     "question": "Qual dos seguintes NÃO é um benefício comum da aplicação de métodos ágeis?",
+    "type": "multiple-choice",
     "options": [
       "Maior flexibilidade e capacidade de resposta a mudanças.",
       "Redução drástica da comunicação entre os membros da equipe.",
@@ -386,6 +421,7 @@
   },
   {
     "question": "Em um ambiente ágil, como a equipe de desenvolvimento deve ser organizada?",
+    "type": "multiple-choice",
     "options": [
       "De forma hierárquica, com um gerente ditando todas as tarefas.",
       "Como equipes auto-organizadas e multifuncionais.",
@@ -397,6 +433,7 @@
   },
   {
     "question": "O que ocorre na fase de teste do ciclo de vida de software?",
+    "type": "multiple-choice",
     "options": [
       "Entrega do software ao cliente.",
       "Codificação dos módulos.",
@@ -408,6 +445,7 @@
   },
   {
     "question": "Qual modelo de processo segue uma sequência linear de etapas?",
+    "type": "multiple-choice",
     "options": [
       "Incremental",
       "Espiral",
@@ -419,6 +457,7 @@
   },
   {
     "question": "Qual a duração recomendada de uma Sprint no Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Semanas ou meses, sem um limite claro.",
       "Um período fixo de tempo, geralmente de uma a quatro semanas.",
@@ -430,6 +469,7 @@
   },
   {
     "question": "Imagine que uma empresa de desenvolvimento de software está enfrentando os seguintes desafios: Requisitos que mudam frequentemente, clientes insatisfeitos com a demora, grande quantidade de defeitos e comunicação ineficiente. Qual a melhor abordagem para resolver isso?",
+    "type": "multiple-choice",
     "options": [
       "Adotar o modelo em cascata para garantir que os requisitos sejam 100% definidos no início.",
       "Priorizar testes de caixa branca no final do projeto, focando na análise do código-fonte.",
@@ -441,6 +481,7 @@
   },
   {
     "question": "No Scrum, quem é responsável por maximizar o valor do produto?",
+    "type": "multiple-choice",
     "options": [
       "Scrum Master",
       "Desenvolvedores",
@@ -452,6 +493,7 @@
   },
   {
     "question": "Os melhores requisitos, arquiteturas e designs emergem de quais tipos de equipes?",
+    "type": "multiple-choice",
     "options": [
       "Equipes hierárquicas e com liderança centralizada.",
       "Equipes autônomas e auto-organizadas.",
@@ -463,6 +505,7 @@
   },
   {
     "question": "O que é o 'Backlog do Produto' no Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Uma lista de tarefas concluídas.",
       "Uma lista ordenada de tudo o que é conhecido por ser necessário no produto.",
@@ -474,6 +517,7 @@
   },
   {
     "question": "O que caracteriza o Teste de Caixa Preta?",
+    "type": "multiple-choice",
     "options": [
       "Foco na estrutura interna do código",
       "Avaliação dos fluxos de decisão",
@@ -485,6 +529,7 @@
   },
   {
     "question": "São exemplos de requisitos funcionais, exceto:",
+    "type": "multiple-choice",
     "options": [
       "Cadastro de clientes",
       "Geração de relatórios",
@@ -496,6 +541,7 @@
   },
   {
     "question": "Um dos princípios do Manifesto Ágil afirma que 'Mudanças nos requisitos, mesmo tardiamente no desenvolvimento, devem ser ____.' Qual a melhor forma de completar a frase?",
+    "type": "multiple-choice",
     "options": [
       "Evitadas a todo custo, pois atrasam o projeto.",
       "Restritas, para garantir o cumprimento do escopo inicial.",
@@ -507,6 +553,7 @@
   },
   {
     "question": "A UML é usada principalmente para:",
+    "type": "multiple-choice",
     "options": [
       "Documentar hardware",
       "Visualizar, especificar, construir e documentar sistemas",
@@ -518,6 +565,7 @@
   },
   {
     "question": "Qual o significado do valor 'Software em funcionamento mais que documentação abrangente' no Manifesto Ágil?",
+    "type": "multiple-choice",
     "options": [
       "A documentação é completamente desnecessária em projetos ágeis.",
       "O foco principal é a entrega de um produto que funcione e gere valor, embora a documentação ainda seja útil, ela não deve ser um obstáculo.",
@@ -529,6 +577,7 @@
   },
   {
     "question": "Durante a fase de Validação de Requisitos, o objetivo é:",
+    "type": "multiple-choice",
     "options": [
       "Codificar funcionalidades",
       "Garantir que os requisitos atendam às necessidades dos usuários",
@@ -540,6 +589,7 @@
   },
   {
     "question": "Qual dos seguintes itens NÃO é um valor fundamental do Manifesto Ágil?",
+    "type": "multiple-choice",
     "options": [
       "Indivíduos e interações mais que processos e ferramentas.",
       "Software em funcionamento mais que documentação abrangente.",
@@ -551,6 +601,7 @@
   },
   {
     "question": "Qual o benefício de limitar o WIP no Kanban?",
+    "type": "multiple-choice",
     "options": [
       "Aumenta o tempo de ciclo e a sobrecarga da equipe.",
       "Melhora o foco, reduz gargalos e acelera o fluxo de valor.",
@@ -562,6 +613,7 @@
   },
   {
     "question": "De acordo com o Manifesto Ágil, qual a prioridade máxima em desenvolvimento de software?",
+    "type": "multiple-choice",
     "options": [
       "Satisfazer o cliente através da entrega contínua e antecipada de software de valor.",
       "Entregar software funcional a cada dois ou quatro meses.",
@@ -573,6 +625,7 @@
   },
   {
     "question": "Qual o objetivo principal do Kanban?",
+    "type": "multiple-choice",
     "options": [
       "Aumentar a quantidade de trabalho em andamento (WIP) para acelerar o processo.",
       "Reduzir o desperdício, otimizar o fluxo e visualizar o trabalho.",
@@ -584,6 +637,7 @@
   },
   {
     "question": "No Kanban, o que representa o limite de WIP (Work In Progress)?",
+    "type": "multiple-choice",
     "options": [
       "O número máximo de pessoas na equipe.",
       "O tempo máximo que uma tarefa pode levar para ser concluída.",
@@ -595,6 +649,7 @@
   },
   {
     "question": "Como o conceito de 'Kaizen' (melhoria contínua) se aplica aos métodos ágeis?",
+    "type": "multiple-choice",
     "options": [
       "Kaizen é exclusivo de metodologias de manufatura e não se aplica ao desenvolvimento de software.",
       "A melhoria contínua é um princípio fundamental nos métodos ágeis, incentivando a equipe a sempre buscar formas de aprimorar seus processos, ferramentas e habilidades.",
@@ -606,6 +661,7 @@
   },
   {
     "question": "Qual é o papel da colaboração com o cliente no desenvolvimento ágil?",
+    "type": "multiple-choice",
     "options": [
       "O cliente define os requisitos no início e só participa na validação final.",
       "A colaboração contínua com o cliente é essencial para maximizar a satisfação e o valor.",
@@ -617,6 +673,7 @@
   },
   {
     "question": "No contexto ágil, qual a melhor forma de medir o progresso de um projeto?",
+    "type": "multiple-choice",
     "options": [
       "Pelo número de linhas de código escritas.",
       "Pela quantidade de documentação produzida.",
@@ -628,6 +685,7 @@
   },
   {
     "question": "O que é um requisito não funcional?",
+    "type": "multiple-choice",
     "options": [
       "Uma funcionalidade principal do sistema",
       "Ação que o sistema executa",
@@ -639,6 +697,7 @@
   },
   {
     "question": "Qual o papel do 'Product Owner' no Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Gerenciar a equipe de desenvolvimento.",
       "Garantir que a equipe siga o plano à risca.",
@@ -650,6 +709,7 @@
   },
   {
     "question": "Na engenharia de requisitos, qual etapa envolve entender as necessidades dos stakeholders?",
+    "type": "multiple-choice",
     "options": [
       "Implementação",
       "Elicitação",
@@ -661,6 +721,7 @@
   },
   {
     "question": "Qual é a finalidade de uma 'Sprint Retrospective' no Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Revisar o que foi entregue na Sprint.",
       "Inspecionar como a equipe trabalhou na Sprint e identificar melhorias para o próximo ciclo.",
@@ -672,6 +733,7 @@
   },
   {
     "question": "Um dos principais benefícios dos modelos ágeis é:",
+    "type": "multiple-choice",
     "options": [
       "Foco exclusivo na documentação",
       "Processo rígido e linear",
@@ -683,6 +745,7 @@
   },
   {
     "question": "Qual das alternativas representa uma vantagem dos modelos de processo de software?",
+    "type": "multiple-choice",
     "options": [
       "Maior subjetividade no desenvolvimento",
       "Aumento de riscos e retrabalho",
@@ -694,6 +757,7 @@
   },
   {
     "question": "O que caracteriza o modelo incremental?",
+    "type": "multiple-choice",
     "options": [
       "Construção completa do software de uma só vez.",
       "Ciclos de desenvolvimento com entregas parciais.",
@@ -705,6 +769,7 @@
   },
   {
     "question": "Qual o princípio ágil que diz 'Construa projetos em torno de indivíduos motivados. Dê a eles o ambiente e o apoio de que precisam, e confie que farão o trabalho.'?",
+    "type": "multiple-choice",
     "options": [
       "Simplicidade.",
       "Pessoas motivadas.",
@@ -716,6 +781,7 @@
   },
   {
     "question": "O que é o Kanban?",
+    "type": "multiple-choice",
     "options": [
       "Um framework ágil para desenvolvimento de software com papéis e eventos definidos.",
       "Um método visual de gestão de fluxo de trabalho que visa otimizar a eficiência e a entrega contínua.",
@@ -727,6 +793,7 @@
   },
   {
     "question": "Qual modelo é mais indicado para projetos com requisitos bem definidos e pouca chance de mudanças?",
+    "type": "multiple-choice",
     "options": [
       "Scrum",
       "Modelo Incremental",
@@ -738,6 +805,7 @@
   },
   {
     "question": "Um sistema de prontuário eletrônico não permite cadastrar certos exames e não tem funções importantes, deixando os médicos insatisfeitos. Qual o erro mais provável?",
+    "type": "multiple-choice",
     "options": [
       "Falha na codificação, pois os desenvolvedores não implementaram corretamente.",
       "Problemas na escolha da linguagem de programação.",
@@ -749,6 +817,7 @@
   },
   {
     "question": "O Diagrama de Casos de Uso representa:",
+    "type": "multiple-choice",
     "options": [
       "Estrutura interna do código",
       "Interações entre atores e o sistema",
@@ -760,6 +829,7 @@
   },
   {
     "question": "O que é o conceito de 'Definition of Done' (DoD) ou 'Definição de Pronto' no Scrum?",
+    "type": "multiple-choice",
     "options": [
       "Uma lista de tarefas que precisam ser concluídas na próxima Sprint.",
       "Um conjunto de critérios de qualidade e funcionalidade que um incremento deve atender para ser considerado 'concluído' e potencialmente entregável.",
@@ -771,6 +841,7 @@
   },
   {
     "question": "O que é um 'ritmo sustentável' no desenvolvimento ágil?",
+    "type": "multiple-choice",
     "options": [
       "Trabalhar o máximo de horas possível para entregar o projeto mais rápido.",
       "Manter um ritmo constante de trabalho, sem exaustão, para garantir a qualidade e a longevidade da equipe.",
@@ -782,6 +853,7 @@
   },
   {
     "question": "O que significa o princípio ágil de 'Entregar software funcionando frequentemente, de algumas semanas a alguns meses, com preferência para o menor espaço de tempo'?",
+    "type": "multiple-choice",
     "options": [
       "Que a entrega de software pode ser adiada até que todas as funcionalidades estejam completas.",
       "Que a equipe deve entregar software com frequência, mesmo que com pouca ou nenhuma funcionalidade.",
