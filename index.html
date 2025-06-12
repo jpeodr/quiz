@@ -77,9 +77,9 @@
             margin-bottom: 20px;
             border-left: 5px solid #4facfe;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: none;
         }
-
+        
+        /* A animação agora está separada para melhor controle */
         .question-card.active {
             display: block;
             animation: slideIn 0.5s ease;
@@ -133,7 +133,7 @@
         }
 
         .option input[type="radio"] {
-            min-width: 18px;
+            min-width: 18px; /* Evita que o radio button seja espremido */
             margin-right: 12px;
             width: 18px;
             height: 18px;
@@ -203,6 +203,7 @@
             opacity: 0.6;
             cursor: not-allowed;
             transform: none !important;
+            box-shadow: none !important;
         }
 
         .feedback {
@@ -264,29 +265,65 @@
         .question-info {
             color: #666;
             font-size: 0.9em;
-            margin-bottom: 10px;
         }
 
-        @media (max-width: 600px) {
+        /* --- ESTILOS RESPONSIVOS PARA DISPOSITIVOS MÓVEIS --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px; /* Reduz o padding do corpo em telas menores */
+            }
+
             .container {
-                margin: 10px;
                 border-radius: 15px;
             }
+            
             .header {
                 padding: 20px;
             }
+            
             .header h1 {
-                font-size: 2em;
+                font-size: 2em; /* Diminui a fonte do título principal */
             }
+
+            .header p {
+                font-size: 1em;
+            }
+            
             .quiz-container {
-                padding: 20px;
+                padding: 20px; /* Diminui o padding interno */
             }
+            
+            .question-text {
+                font-size: 1.1em; /* Diminui a fonte da pergunta */
+            }
+
+            .option label {
+                font-size: 0.95em;
+                padding: 12px;
+            }
+
             .controls {
-                flex-direction: column;
-                align-items: stretch;
+                flex-direction: column; /* Empilha os controles verticalmente */
+                align-items: stretch; /* Faz os botões ocuparem a largura total */
             }
+            
             .btn {
-                margin-bottom: 10px;
+                width: 100%; /* Botões com largura total */
+            }
+
+            .question-info {
+                order: -1; /* Coloca a informação "Pergunta X de Y" no topo */
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+            .results h2 {
+                font-size: 1.8em;
+            }
+
+            .score-circle {
+                width: 130px;
+                height: 130px;
             }
         }
     </style>
@@ -368,8 +405,9 @@
 
             const question = questions[currentQuestionIndex];
             
+            // A div .question-card é criada dinamicamente
             container.innerHTML = `
-                <div class="question-card active">
+                <div class="question-card">
                     <div class="question-number">Pergunta ${currentQuestionIndex + 1}</div>
                     <div class="question-text">${question.question}</div>
                     <ul class="options">
@@ -377,7 +415,7 @@
                             <li class="option">
                                 <label>
                                     <input type="radio" name="question" value="${index}" onchange="selectAnswer(${index})">
-                                    ${String.fromCharCode(97 + index)}) ${option}
+                                    <span>${String.fromCharCode(97 + index)}) ${option}</span>
                                 </label>
                             </li>
                         `).join('')}
@@ -387,6 +425,14 @@
                     </div>
                 </div>
             `;
+            // Adiciona a classe 'active' para iniciar a animação
+            // Usar um pequeno timeout para garantir que o elemento exista antes de adicionar a classe
+            setTimeout(() => {
+                const card = container.querySelector('.question-card');
+                if (card) {
+                    card.classList.add('active');
+                }
+            }, 10);
             
             document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
             updateButtons();
@@ -470,8 +516,11 @@
 
         // Atualiza a barra de progresso
         function updateProgress() {
-            if (questions.length === 0) return;
-            const progress = ((currentQuestionIndex) / (questions.length-1)) * 100;
+            if (questions.length <= 1) { // Evita divisão por zero se houver apenas uma pergunta
+                document.getElementById('progressFill').style.width = '100%';
+                return;
+            }
+            const progress = (currentQuestionIndex / (questions.length - 1)) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
         }
 
@@ -508,7 +557,10 @@
             document.getElementById('results').classList.remove('show');
             document.getElementById('results').style.display = 'none';
             
-            initQuiz(); // Recarrega as perguntas e reinicia o quiz
+            // Não precisa chamar initQuiz() de novo se as perguntas já estão em memória
+            // Apenas re-renderiza a primeira pergunta.
+            renderQuestion();
+            updateProgress();
         }
 
         // Inicializar o quiz quando a página carregar
