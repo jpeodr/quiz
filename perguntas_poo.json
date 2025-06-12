@@ -1,0 +1,277 @@
+[
+  {
+    "question": "Roteiro: 1. No jogo, o aluno precisa passar por salas obrigatórias em cada fase para avançar. Na Programação Orientada a Objetos, o que essa estrutura representa?",
+    "type": "multiple-choice",
+    "options": [
+      "Atributos públicos acessados em qualquer parte do programa",
+      "Mensagens enviadas entre objetos diferentes",
+      "Métodos essenciais de uma classe que precisam ser executados",
+      "Variáveis locais criadas apenas em tempo de execução"
+    ],
+    "correct": 2,
+    "feedback": "As 'salas obrigatórias' simbolizam etapas que devem ser cumpridas para continuar, assim como métodos essenciais em uma classe que são executados como parte obrigatória de um fluxo de execução, como os métodos definidos para um comportamento esperado (ex: validar(), executar() etc.). Isso remete à obrigatoriedade de certas ações que uma classe impõe ao seu funcionamento."
+  },
+  {
+    "question": "Roteiro: 2. Na terceira fase, aparece o Professor Boss, uma entidade obrigatória para finalizar a fase. Qual conceito de POO melhor representa esse 'Boss'?",
+    "type": "multiple-choice",
+    "options": [
+      "Um atributo privado de um objeto",
+      "Um método final obrigatório de uma superclasse que deve ser sobrescrito",
+      "Um comentário importante no código",
+      "Um objeto temporário que não interfere no fluxo principal"
+    ],
+    "correct": 1,
+    "feedback": "O 'Boss' representa um desafio obrigatório para finalizar a fase, o que se assemelha a um método final ou abstrato de uma superclasse que deve ser implementado (ou sobrescrito) pelas subclasses. Isso garante que qualquer subclasse que herde da superclasse obrigatoriamente trate o comportamento final."
+  },
+  {
+    "question": "Roteiro: 3. O modo servidor permite que os jogadores conversem entre si, mas não interajam diretamente nas fases. Isso se assemelha a qual conceito em POO?",
+    "type": "multiple-choice",
+    "options": [
+      "Herança múltipla",
+      "Atributos estáticos compartilhados entre classes",
+      "Encapsulamento, onde os objetos compartilham informações mas mantêm sua lógica isolada",
+      "Overload de métodos com diferentes parâmetros"
+    ],
+    "correct": 2,
+    "feedback": "No modo servidor, há troca de mensagens (comunicação) entre jogadores, mas sem interferência direta no funcionamento interno de cada jogador. Isso reflete o conceito de encapsulamento, onde os objetos compartilham informações via interfaces públicas, mas mantêm sua lógica interna protegida."
+  },
+  {
+    "question": "Roteiro: 4. A evolução do jogo a cada fase, com novas regras, ambientes e funcionalidades, pode ser comparada com o quê em POO?",
+    "type": "multiple-choice",
+    "options": [
+      "Herança, onde uma classe filha herda e expande o comportamento da classe pai",
+      "Instanciação de objetos fixos",
+      "Criação de variáveis locais",
+      "Definição de construtores múltiplos"
+    ],
+    "correct": 0,
+    "feedback": "Cada fase adiciona novas funcionalidades e regras, mas ainda mantém a estrutura básica. Isso é semelhante à herança em POO, onde uma subclasse herda atributos e métodos da superclasse e pode adicionar ou modificar comportamentos, expandindo a lógica da anterior."
+  },
+  {
+    "question": "Roteiro: 5. No jogo, o personagem passa por fases que representam os semestres do curso. Sabendo disso, como isso pode ser comparado ao conceito de encapsulamento na Programação Orientada a Objetos?",
+    "type": "essay",
+    "options": [],
+    "correct": null,
+    "feedback": "Cada fase do jogo representa um conjunto de desafios e regras específicas, assim como o encapsulamento agrupa dados (regras da fase) e comportamentos (lógica para completar a fase) dentro de uma classe, escondendo detalhes e mostrando apenas o necessário para a interação externa."
+  },
+  {
+    "question": "Design: 1. Se uma sala do jogo fosse comparada a uma classe na POO, o que os objetos seriam?",
+    "type": "multiple-choice",
+    "options": [
+      "As regras do jogo",
+      "As cópias dessa sala com suas próprias características",
+      "Os inimigos do jogo",
+      "O fundo musical"
+    ],
+    "correct": 1,
+    "feedback": "Uma classe é como um molde. Quando criamos objetos a partir dessa classe, cada objeto é uma instância individual com seus próprios dados. No contexto do jogo, cada sala 'criada' a partir do modelo de sala é um objeto da classe 'Sala'."
+  },
+  {
+    "question": "Design: 2. Quando criamos uma “Sala Científica” com base em uma “Sala Genérica”, estamos usando:",
+    "type": "multiple-choice",
+    "options": [
+      "Encapsulamento",
+      "Sprite",
+      "Compilação",
+      "Herança"
+    ],
+    "correct": 3,
+    "feedback": "A herança em POO permite criar uma nova classe baseada em outra. A 'Sala Científica' herda atributos e comportamentos da 'Sala Genérica', podendo adicionar ou modificar o que for necessário."
+  },
+  {
+    "question": "Design: 3. No design do jogo, os personagens são criados com aparência, nome e ações. Na POO, isso corresponde a:",
+    "type": "multiple-choice",
+    "options": [
+      "Atributos e métodos",
+      "Vetores e loops",
+      "Arrays e funções",
+      "Telas e animações"
+    ],
+    "correct": 0,
+    "feedback": "Na POO, os atributos representam os dados (ex: nome, aparência) e os métodos representam as ações ou comportamentos (ex: andar, atacar). Um personagem com nome, aparência e ações é modelado por uma classe com atributos e métodos."
+  },
+  {
+    "question": "Design: 4. Se o 'sprite do personagem' pode andar, correr e pular, o que isso representa na POO?",
+    "type": "multiple-choice",
+    "options": [
+      "Texturas do código",
+      "Variáveis estáticas",
+      "Herança",
+      "Métodos do objeto"
+    ],
+    "correct": 3,
+    "feedback": "Os comportamentos do sprite, como andar, correr e pular, são ações associadas ao personagem. Em POO, essas ações são chamadas de métodos e pertencem a objetos. Cada personagem (objeto) pode executar esses métodos."
+  },
+  {
+    "question": "Design: 5. Durante a criação de um novo tipo de sala no jogo, você decide não aproveitar nenhuma sala existente, e sim construir uma totalmente diferente, com novas regras e design exclusivo. Na lógica da POO, o que você está fazendo? Explique.",
+    "type": "essay",
+    "options": [],
+    "correct": null,
+    "feedback": "Você está criando uma nova classe base. Como a sala é totalmente diferente e não reutiliza características de outras, não faz sentido usar herança. Está sendo criado um novo 'molde' com características únicas."
+  },
+  {
+    "question": "Desenvolvimento: 1. Qual é a principal vantagem de usar Programação Orientada a Objetos (POO) em jogos em relação à programação estruturada?",
+    "type": "multiple-choice",
+    "options": [
+      "Menor consumo de memória",
+      "Reutilização de código e modularidade",
+      "Código mais difícil de ler",
+      "Maior uso de variáveis globais"
+    ],
+    "correct": 1,
+    "feedback": "A POO permite criar estruturas reutilizáveis (classes) e favorece a modularidade, organizando o código em partes independentes, o que torna o desenvolvimento de jogos mais escalável e facilita a manutenção."
+  },
+  {
+    "question": "Desenvolvimento: 2. O que é uma classe em POO e como ela foi utilizada no desenvolvimento do jogo?",
+    "type": "multiple-choice",
+    "options": [
+      "Uma variável que armazena valores globais",
+      "Uma biblioteca específica para jogos",
+      "Um molde para criar objetos com atributos e métodos",
+      "Um tipo especial de lista que armazena funções"
+    ],
+    "correct": 2,
+    "feedback": "Uma classe define os atributos (características) e métodos (comportamentos) de um tipo de objeto. No jogo, uma classe Personagem pode ter atributos como vida e posição, e métodos como andar() ou atacar()."
+  },
+  {
+    "question": "Desenvolvimento: 3. Qual é a diferença entre herança e polimorfismo?",
+    "type": "multiple-choice",
+    "options": [
+      "Herança serve apenas para duplicar código, polimorfismo serve para excluir classes",
+      "Herança é usada para proteger atributos privados, polimorfismo para proteger métodos públicos",
+      "Herança permite que objetos usem variáveis globais, polimorfismo não",
+      "Herança permite que classes compartilhem atributos, polimorfismo permite tratar objetos de diferentes classes de forma uniforme"
+    ],
+    "correct": 3,
+    "feedback": "Herança permite criar uma nova classe com base em outra (ex: InimigoAvançado herda de Inimigo). Polimorfismo permite que métodos com o mesmo nome se comportem de forma diferente em classes diferentes (ex: o método atacar() funciona diferente para um Guerreiro e para um Mago)."
+  },
+  {
+    "question": "Desenvolvimento: 4. Explique o conceito de encapsulamento e como ele foi aplicado para proteger as informações dos objetos do jogo.",
+    "type": "multiple-choice",
+    "options": [
+      "Encapsulamento é quando se oculta os detalhes internos de um objeto, expondo apenas métodos públicos",
+      "Encapsulamento é colocar todas as variáveis em um arquivo separado",
+      "Encapsulamento é o processo de herdar métodos de outras classes",
+      "Encapsulamento significa dividir o código em várias classes independentes"
+    ],
+    "correct": 0,
+    "feedback": "Encapsulamento é o princípio de esconder os detalhes internos da implementação de um objeto. Isso protege os dados e impede alterações indevidas. No jogo, o atributo 'vida' de um personagem só pode ser alterado por métodos controlados, como receberDano()."
+  },
+  {
+    "question": "Desenvolvimento: 5. Qual foi a biblioteca escolhida para o desenvolvimento do game?",
+    "type": "essay",
+    "options": [],
+    "correct": null,
+    "feedback": "Pygame"
+  },
+  {
+    "question": "Conexão: 1. Em um jogo multiplayer com socket, cada jogador conectado pode ser representado, na POO, por:",
+    "type": "multiple-choice",
+    "options": [
+      "Uma função de movimento",
+      "Uma variável global",
+      "Uma thread do sistema",
+      "Uma instância da classe Jogador"
+    ],
+    "correct": 3,
+    "feedback": "Cada jogador conectado é um objeto único da classe Jogador. Cada instância mantém seus próprios atributos (nome, posição, pontuação) e métodos (mover(), enviar_dados()), facilitando o controle individual."
+  },
+  {
+    "question": "Conexão: 2. Ao utilizar threading para permitir que o servidor escute múltiplos jogadores ao mesmo tempo, qual conceito da POO está diretamente sendo utilizado para isolar o comportamento de cada jogador?",
+    "type": "multiple-choice",
+    "options": [
+      "Polimorfismo",
+      "Encapsulamento",
+      "Herança múltipla",
+      "Construtores"
+    ],
+    "correct": 1,
+    "feedback": "O encapsulamento é essencial para isolar os dados e comportamentos de cada jogador. Cada conexão com o cliente é gerenciada por um objeto separado, e as informações ficam encapsuladas dentro da instância daquele jogador, evitando interferências."
+  },
+  {
+    "question": "Conexão: 3. Quando criamos uma classe Servidor e outra Cliente para organizar o código de conexão, isso demonstra:",
+    "type": "multiple-choice",
+    "options": [
+      "Separação de responsabilidades com orientação a objetos",
+      "Má prática de programação",
+      "Uso de arrays e listas",
+      "Herança entre sockets"
+    ],
+    "correct": 0,
+    "feedback": "Criar classes distintas para Servidor e Cliente é uma boa prática que aplica o princípio da separação de responsabilidades. Cada classe tem um papel claro e bem definido no sistema de comunicação."
+  },
+  {
+    "question": "Conexão: 4. Suponha que a classe Jogador tenha um método enviar_dados(). Se diferentes tipos de jogadores implementarem esse método de maneira diferente, estamos usando:",
+    "type": "multiple-choice",
+    "options": [
+      "Threads",
+      "Polimorfismo",
+      "Herança múltipla",
+      "Sobrecarga de socket"
+    ],
+    "correct": 1,
+    "feedback": "Polimorfismo ocorre quando uma mesma função (enviar_dados()) pode ter comportamentos diferentes dependendo da classe que a implementa. Por exemplo, JogadorHumano e JogadorBot podem ter o mesmo método, mas com lógicas internas diferentes."
+  },
+  {
+    "question": "Conexão: 5. Quando se trata de jogo multiplayer SIMPLES utilizando a biblioteca socket, quais são as três principais classes para que o jogo funcione corretamente seguindo as boas práticas de POO?",
+    "type": "essay",
+    "options": [],
+    "correct": null,
+    "feedback": "Servidor: gerencia as conexões e a lógica central. Cliente: representa o jogador e sua conexão. Network (Rede): abstrai o envio e recebimento de mensagens via socket, facilitando a comunicação."
+  },
+  {
+    "question": "QA: 1. Lucas criou a classe 'Inimigo' com todos os atributos públicos. Por que a classe 'Player', que usa métodos para alterar seus atributos, é uma melhor aplicação de POO?",
+    "type": "multiple-choice",
+    "options": [
+      "Porque esconde os atributos internos e usa métodos para manipulá-los (Encapsulamento)",
+      "Porque tem mais métodos",
+      "Porque usa nomes em inglês",
+      "Porque tem mais atributos"
+    ],
+    "correct": 0,
+    "feedback": "A classe Player é mais segura e organizada porque protege os dados internos (como posição) e usa métodos para alterar esses valores. Isso é um exemplo clássico de encapsulamento."
+  },
+  {
+    "question": "QA: 2. Ana criou a classe 'Estudante(Player)' para adicionar novas funcionalidades a um personagem. Qual conceito de POO está sendo usado e por que é útil?",
+    "type": "multiple-choice",
+    "options": [
+      "Polimorfismo, porque permite criar métodos com o mesmo nome",
+      "Encapsulamento, porque protege os dados",
+      "Herança, porque reaproveita código da classe Player",
+      "Abstração, porque esconde a implementação"
+    ],
+    "correct": 2,
+    "feedback": "Com herança, a nova classe 'Estudante' reaproveita tudo o que a classe 'Player' já tem, evitando a reescrita de código e facilitando a adição de novas características específicas."
+  },
+  {
+    "question": "QA: 3. Pedro fez dois testes, um que carrega imagens e outro com um parâmetro 'test_mode=True' que não carrega. Por que o segundo teste é uma prática melhor em POO?",
+    "type": "multiple-choice",
+    "options": [
+      "Porque é mais rápido",
+      "Porque usa mais parâmetros",
+      "Porque não depende de recursos externos, como imagens",
+      "Porque tem um nome melhor"
+    ],
+    "correct": 2,
+    "feedback": "O segundo teste funciona mesmo sem carregar imagens ou outros recursos externos. Isso facilita testes automatizados e desacopla a lógica do jogo dos seus assets gráficos."
+  },
+  {
+    "question": "QA: 4. Comparando player.rect.x += 10 (Código A) vs. player.move(10, 5) (Código B), qual usa melhor os conceitos de POO e por quê?",
+    "type": "multiple-choice",
+    "options": [
+      "Código B, porque simplifica o uso e esconde a complexidade (Abstração)",
+      "Código A, porque acessa direto os atributos",
+      "Código A, porque mostra mais detalhes",
+      "Ambos são bons"
+    ],
+    "correct": 0,
+    "feedback": "O Código B usa abstração e encapsulamento. Ele fornece um método simples ('move') que esconde a complexidade interna de como a movimentação e a atualização da direção são realmente feitas."
+  },
+  {
+    "question": "QA: 5. Comparando uma única classe 'Player' com tudo dentro (Abordagem 2) vs. separar em 'PlayerGraphics' e 'PlayerMovement' (Abordagem 1), por que a Abordagem 2 (tudo junto) é mais adequada para este projeto simples?",
+    "type": "essay",
+    "options": [],
+    "correct": null,
+    "feedback": "Para um projeto simples, a Abordagem 2 é mais direta e mantém o código coeso, agrupando tudo relacionado ao Player em um só lugar. A Abordagem 1 (composição) é poderosa, mas pode adicionar complexidade desnecessária em casos mais simples."
+  }
+]
