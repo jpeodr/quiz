@@ -40,26 +40,30 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
+        html { transition: color 0.3s ease, background-color 0.3s ease; }
 
         body {
             font-family: var(--font-family);
             background-color: var(--background);
             color: var(--text-primary);
             min-height: 100vh;
-            padding: 20px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column; /* Organiza body em coluna para o footer */
             transition: background-color 0.3s ease;
         }
 
+        .main-content {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start; /* <<< ALTERAÇÃO AQUI: Alinha o conteúdo ao topo */
+            justify-content: center; 
+            flex-grow: 1; 
+        }
+        
         .container {
             max-width: 800px;
             width: 100%;
-            margin: 0 auto;
             background-color: var(--surface);
             border: 1px solid var(--border);
             border-radius: 16px;
@@ -76,51 +80,45 @@
             border-bottom: 1px solid var(--border);
             gap: 15px;
         }
+        .header-item { flex-basis: 80px; flex-shrink: 0; }
+        .header-item.left { display: flex; justify-content: flex-start; }
+        .header-item.right { display: flex; justify-content: flex-end; }
         .header-content { flex-grow: 1; text-align: center; }
         .header h1 { font-size: 1.8em; font-weight: 600; color: var(--text-primary); }
         .header p { font-size: 1em; color: var(--text-secondary); }
 
         .btn-icon {
-            background-color: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            height: 40px;
-            width: 40px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
+            background-color: transparent; border: 1px solid var(--border); color: var(--text-secondary);
+            height: 40px; width: 40px; min-width: 40px;
+            border-radius: 50%; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;
         }
         .btn-icon:hover { background-color: var(--surface-secondary); border-color: var(--accent-primary); color: var(--accent-primary); }
         .btn-icon svg { width: 20px; height: 20px; }
         
-        /* --- TELA DE SELEÇÃO --- */
         .selection-container { padding: 30px; display: flex; flex-direction: column; gap: 15px; }
         .quiz-card-button {
-            background-color: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: left;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
+            background-color: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+            padding: 20px; text-align: left; width: 100%; cursor: pointer; transition: all 0.2s ease-in-out;
         }
         .quiz-card-button:hover { border-color: var(--accent-primary); background-color: var(--surface-secondary); transform: translateY(-2px); }
         .quiz-card-button h3 { color: var(--text-primary); font-size: 1.2em; font-weight: 600; margin-bottom: 5px; }
         .quiz-card-button p { color: var(--text-secondary); font-size: 0.9em; font-weight: 400; }
+        
+        #mainFooter {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            font-weight: 500;
+        }
 
-        /* --- QUIZ --- */
         .quiz-container { padding: 30px; display: none; }
         .restart-container { text-align: center; margin-top: 25px; }
         .progress-bar { width: 100%; height: 8px; background: var(--surface-secondary); border-radius: 4px; margin-bottom: 20px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--accent-gradient); border-radius: 4px; transition: width 0.5s ease; width: 0%; }
         .question-card { background-color: var(--surface-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 20px; }
-        .question-card.active { display: block; animation: slideIn 0.5s ease; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .question-number { color: var(--accent-primary); font-weight: 600; font-size: 0.9em; margin-bottom: 10px; }
         .question-text { font-size: 1.1em; font-weight: 500; color: var(--text-primary); margin-bottom: 20px; line-height: 1.6; }
         
@@ -149,15 +147,10 @@
         .btn-restart:hover { background-color: rgba(231, 76, 60, 0.1); }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; background-color: var(--border) !important; color: var(--text-secondary) !important; border-color: var(--border) !important; }
         
-        /* --- ESTILO ATUALIZADO DO FEEDBACK --- */
         .feedback { 
-            margin-top: 20px; 
-            padding: 15px; 
-            border-radius: 10px; 
-            background: var(--surface); /* Cor igual às alternativas */
-            border: 1px solid var(--border); /* Borda padrão */
-            border-left: 4px solid var(--accent-secondary); /* Destaque azul mantido */
-            display: none; 
+            margin-top: 20px; padding: 15px; border-radius: 10px; 
+            background: var(--surface); border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-secondary); display: none; 
         }
         .feedback.show { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -169,7 +162,7 @@
         .question-info { color: var(--text-secondary); font-size: 0.9em; }
         .results-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         
-        .confirm-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1000; animation: fadeIn 0.3s ease; }
+        .confirm-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1000; animation: fadeIn 0.3s ease; }
         .confirm-box { background: var(--surface); padding: 30px 40px; border-radius: 15px; text-align: center; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: scale(0.95); animation: popIn 0.3s ease forwards; }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .confirm-box p { font-size: 1.1em; color: var(--text-primary); font-weight: 500; }
@@ -178,79 +171,91 @@
 
         @media (max-width: 768px) {
             body { padding: 0; }
-            .container { border-radius: 0; min-height: 100vh; border: none; }
+            .main-content { padding: 0; align-items: flex-start; } /* Garante alinhamento ao topo em mobile */
+            .container { border-radius: 0; min-height: 100%; border: none; }
             .header { padding: 15px; }
             .header h1 { font-size: 1.2em; }
-            .header p { font-size: 0.8em; }
+            .header-item { flex-basis: 65px; } 
+            .header .btn-primary { width: auto; padding: 8px 12px; font-size: 0.9em; }
             .quiz-container, .selection-container { padding: 20px 15px; }
             .quiz-card-button h3 { font-size: 1.1em; }
             .question-text { font-size: 1em; }
             .controls { flex-direction: column; align-items: stretch; }
-            .btn { width: 100%; padding: 12px; }
+            .controls .btn { width: 100%; padding: 12px; }
             .question-info { order: -1; margin-bottom: 15px; text-align: center; }
             .restart-container { width: 100%; margin-top: 15px; order: 1; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <button id="homeBtn" class="btn btn-primary" onclick="backToSelection()" style="display: none;">Início</button>
-            <div class="header-content">
-                <h1 id="quizTitle">Quiz de estudos</h1>
-                <p id="quizSubtitle">Escolha um simulado para começar</p>
-            </div>
-            <button id="themeSwitcher" class="btn-icon">
-                <svg id="themeIconSun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg id="themeIconMoon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
-        </div>
-
-        <div class="selection-container" id="selectionContainer">
-            <button class="quiz-card-button" onclick="selectQuiz('engSoftware')">
-                <h3>Engenharia de Software</h3>
-                <p>Teste seus conhecimentos sobre Métodos Ágeis, Scrum, Kanban e mais!</p>
-            </button>
-            <button class="quiz-card-button" onclick="selectQuiz('poo')">
-                <h3>Programação Orientada a Objetos</h3>
-                <p>Desafios sobre Classes, Herança, Polimorfismo e Encapsulamento.</p>
-            </button>
-        </div>
-
-        <div class="quiz-container" id="quizContainer">
-            <div class="progress-bar" id="progressBar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <div id="questionsContainer"></div>
-            <div class="controls" id="controls">
-                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">← Anterior</button>
-                <div class="question-info">
-                    <span id="currentQuestion">1</span> de <span id="totalQuestions">0</span>
+    <div class="main-content">
+        <div class="container">
+            <div class="header">
+                <div class="header-item left">
+                    <button id="homeBtn" class="btn btn-primary" onclick="backToSelection()" style="display: none;">Início</button>
                 </div>
-                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Próxima →</button>
-            </div>
-            <div class="restart-container" id="restartContainer">
-                 <button class="btn btn-restart" onclick="restartCurrentQuiz()">Reiniciar Quiz</button>
-            </div>
-            <div class="results" id="results">
-                <div class="score-circle" id="scoreCircle">0%</div>
-                <h2>Quiz Concluído!</h2>
-                <p id="scoreText"></p>
-                <div class="results-actions">
-                    <button class="btn btn-secondary" onclick="restartCurrentQuiz()">Refazer Quiz</button>
-                    <button class="btn btn-primary" onclick="backToSelection()">Página Inicial</button>
+                <div class="header-content">
+                    <h1 id="quizTitle">Quiz de estudos</h1>
+                    <p id="quizSubtitle">Escolha um simulado para começar</p>
+                </div>
+                <div class="header-item right">
+                    <button id="themeSwitcher" class="btn-icon">
+                        <svg id="themeIconSun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        <svg id="themeIconMoon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
                 </div>
             </div>
-        </div>
 
-        <div id="customConfirm" class="confirm-overlay" style="display: none;">
-            <div class="confirm-box">
-                <p>Tem certeza que deseja reiniciar?</p>
-                <p class="confirm-subtitle">Todo o seu progresso será perdido.</p>
-                <div class="confirm-buttons">
-                    <button id="confirmNo" class="btn btn-secondary">Cancelar</button>
-                    <button id="confirmYes" class="btn btn-danger">Sim, reiniciar</button>
+            <div class="selection-container" id="selectionContainer">
+                <button class="quiz-card-button" onclick="selectQuiz('engSoftware')">
+                    <h3>Engenharia de Software</h3>
+                    <p>Teste seus conhecimentos sobre Métodos Ágeis, Scrum, Kanban e mais!</p>
+                </button>
+                <button class="quiz-card-button" onclick="selectQuiz('poo')">
+                    <h3>Programação Orientada a Objetos</h3>
+                    <p>Desafios sobre Classes, Herança, Polimorfismo e Encapsulamento.</p>
+                </button>
+            </div>
+
+            <div class="quiz-container" id="quizContainer">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
                 </div>
+                <div id="questionsContainer"></div>
+                <div class="controls" id="controls">
+                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">← Anterior</button>
+                    <div class="question-info">
+                        <span id="currentQuestion">1</span> de <span id="totalQuestions">0</span>
+                    </div>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Próxima →</button>
+                </div>
+                <div class="restart-container" id="restartContainer">
+                     <button class="btn btn-restart" onclick="restartCurrentQuiz()">Reiniciar Quiz</button>
+                </div>
+                <div class="results" id="results">
+                    <div class="score-circle" id="scoreCircle">0%</div>
+                    <h2>Quiz Concluído!</h2>
+                    <p id="scoreText"></p>
+                    <div class="results-actions">
+                        <button class="btn btn-secondary" onclick="restartCurrentQuiz()">Refazer Quiz</button>
+                        <button class="btn btn-primary" onclick="backToSelection()">Página Inicial</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="mainFooter">
+        <p>Desenvolvido por João Pedro Silva</p>
+    </footer>
+
+    <div id="customConfirm" class="confirm-overlay" style="display: none;">
+        <div class="confirm-box">
+            <p>Tem certeza que deseja reiniciar?</p>
+            <p class="confirm-subtitle">Todo o seu progresso será perdido.</p>
+            <div class="confirm-buttons">
+                <button id="confirmNo" class="btn btn-secondary">Cancelar</button>
+                <button id="confirmYes" class="btn btn-danger">Sim, reiniciar</button>
             </div>
         </div>
     </div>
@@ -313,6 +318,7 @@
                 .then(data => {
                     questions = data;
                     document.getElementById('selectionContainer').style.display = 'none';
+                    document.getElementById('mainFooter').style.display = 'none';
                     document.getElementById('quizContainer').style.display = 'block';
                     document.getElementById('homeBtn').style.display = 'flex';
                     startQuiz();
@@ -346,8 +352,9 @@
             document.getElementById('quizContainer').style.display = 'none';
             document.getElementById('homeBtn').style.display = 'none';
             document.getElementById('selectionContainer').style.display = 'flex';
+            document.getElementById('mainFooter').style.display = 'block';
             
-            document.getElementById('quizTitle').textContent = 'Quiz de estudos Fatec';
+            document.getElementById('quizTitle').textContent = 'Quiz de estudos';
             document.getElementById('quizSubtitle').textContent = 'Escolha um simulado para começar';
         }
 
